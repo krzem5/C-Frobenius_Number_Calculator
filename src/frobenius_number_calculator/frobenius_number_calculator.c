@@ -7,15 +7,15 @@ uint64_t frobenius_number(const uint64_t* data,uint64_t count){
 	if (!count){
 		return 0;
 	}
-	uint64_t a1=*data;
-	count--;
-	if (!count){
-		return a1-1;
-	}
-	data++;
 	if (count==1){
-		return (a1-1)*(data[0]-1)-1;
+		return data[0]-1;
 	}
+	if (count==2){
+		return (data[0]-1)*(data[1]-1)-1;
+	}
+	uint64_t a1=data[0];
+	count--;
+	data++;
 	uint64_t l=(a1+63)>>6;
 	uint64_t* b=malloc((count+l+3*a1)*sizeof(uint64_t));
 	uint64_t* m=b+count;
