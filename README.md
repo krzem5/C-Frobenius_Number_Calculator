@@ -1,1 +1,1 @@
-# C - Signal Strength Triangulation
+# C - Frobenius Number Calculator
