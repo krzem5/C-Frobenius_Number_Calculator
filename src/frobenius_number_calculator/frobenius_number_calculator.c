@@ -98,6 +98,7 @@ uint64_t frobenius_number(const uint64_t* data,uint64_t count){
 		}
 		w<<=1;
 	}
+	free(left);
 	uint64_t a1=a[0];
 	a++;
 	uint64_t l=(a1+63)>>6;
@@ -105,7 +106,6 @@ uint64_t frobenius_number(const uint64_t* data,uint64_t count){
 	uint64_t* p=m+l;
 	uint64_t* q=p+a1;
 	uint64_t* s=q+a1;
-	free(left);
 	count--;
 	p[0]=count;
 	q[0]=0;
