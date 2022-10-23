@@ -59,11 +59,11 @@ uint64_t frobenius_number(const uint64_t* data,uint64_t count){
 				continue;
 			}
 			q[j]=v;
-			m[v>>6]|=n;
 			j++;
 			if (j==a1){
 				j=0;
 			}
+			m[v>>6]|=n;
 		}
 	} while (i!=j);
 	uint64_t out=0;
