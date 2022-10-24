@@ -4,7 +4,7 @@
 
 
 
-uint64_t frobenius_number(const uint64_t* data,uint64_t count);
+uint64_t frobenius_number(const uint64_t* data,uint64_t count,_Bool sorted);
 
 
 
