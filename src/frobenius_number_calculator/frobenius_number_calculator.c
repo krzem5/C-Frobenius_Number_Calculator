@@ -104,12 +104,12 @@ uint64_t frobenius_number(const uint64_t* data,uint64_t count,_Bool sorted){
 	for (uint64_t i=0;i<count;i++){
 		a[i]=data[i];
 	}
-	uint64_t merge_sort_tmp_length=1<<(FIND_LAST_SET_BIT(count)+1);
-	if (merge_sort_tmp_length>count){
-		merge_sort_tmp_length=count;
+	uint64_t length=1<<(FIND_LAST_SET_BIT(count)+1);
+	if (length>count){
+		length=count;
 	}
-	uint64_t* left=malloc(2*merge_sort_tmp_length*sizeof(uint64_t));
-	uint64_t* right=left+merge_sort_tmp_length;
+	uint64_t* left=malloc(2*length*sizeof(uint64_t));
+	uint64_t* right=left+length;
 	uint64_t w=1;
 	count--;
 	while (w<=count){
@@ -129,11 +129,12 @@ uint64_t frobenius_number(const uint64_t* data,uint64_t count,_Bool sorted){
 				l+=w<<1;
 				continue;
 			}
-			for (uint64_t i=0;i<left_l;i++){
-				left[i]=a[l+i];
-			}
 			for (uint64_t i=0;i<right_l;i++){
+				left[i]=a[l+i];
 				right[i]=a[m+i+1];
+			}
+			for (uint64_t i=right_l;i<left_l;i++){
+				left[i]=a[l+i];
 			}
 			uint64_t i=0;
 			uint64_t j=0;
